@@ -7,5 +7,8 @@
     "activityBar.background": "#440A71",
     "titleBar.activeBackground": "#5F0E9F",
     "titleBar.activeForeground": "#FDFBFF"
-  }
+  },
+  "conventionalCommits.scopes": [
+    "pokedex"
+  ]
 }

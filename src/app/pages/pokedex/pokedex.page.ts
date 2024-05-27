@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokeApiService } from 'src/app/services/api/poke-api.service';
+import { ItemPokemon } from 'src/app/services/api/types';
 
 @Component({
   selector: 'app-pokedex',
@@ -9,8 +10,11 @@ import { PokeApiService } from 'src/app/services/api/poke-api.service';
 
 
 export class PokedexPage implements OnInit {
-  pokemons: any = [];
-  search: string = '';
+  pokemons: ItemPokemon[] = [];
+  next: string = '';
+  previous: string = '';
+  count: string = '';
+  // pokemonDetails: PokemonResponse | null = null;
 
   private pokeApiService: PokeApiService;
   constructor(pokeapiService: PokeApiService) {
@@ -19,14 +23,23 @@ export class PokedexPage implements OnInit {
 
   async getPokemons(){
     try {
-      this.pokemons = await this.pokeApiService.getPokemons();
+      const response = await this.pokeApiService.getPokemons();
+      this.pokemons = response.results;
+      this.next = response.next;
+      this.previous = response.previous;
+      this.count = response.count; 
     } catch (error) {
       console.log(error)
     }
   }
 
+  // async getPokemon(url: string){
+  //   const response = await this.pokeApiService.getPokemon(url);
+  //   this.pokemonDetails = response;
+  // }
+
   ngOnInit() {
-    console.log(this.getPokemons());
+    this.getPokemons();
   }
 
 }

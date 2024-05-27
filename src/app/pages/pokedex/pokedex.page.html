@@ -10,8 +10,8 @@
 
   <ion-list [inset]="true">
     <ion-item *ngFor="let pokemon of pokemons">
-      <img slot="start" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.entry_number}}.png">
-      <ion-label>{{pokemon.pokemon_species.name}}</ion-label>
+      <img slot="start" src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png'>
+      <ion-label>{{pokemon.name}}</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
