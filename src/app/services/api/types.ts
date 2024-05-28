@@ -12,24 +12,25 @@ export type ItemPokemon = {
     id: number    
 }
 
-// export type PokemonResponse = {
-//     abilities: Ability[],
-//     height: number,
-//     weight: number,
-//     types: Type[]    
-// }
+export type PokemonResponse = {
+    abilities: Ability[],
+    height: number,
+    weight: number,
+    types: Type[]
+    name: string,
+    order: number    
+}
 
-// type Ability = {
-//     ability: {
-//         name: string
-//     }
-//     is_hidden: boolean
-// }
+type Ability = {
+    ability: {
+        name: string
+    }
+}
 
-// type Type = {
-//     slot: number,
-//     type: {
-//         name: string
-//     }
-// }
+type Type = {
+    slot: number,
+    type: {
+        name: string
+    }
+}
  

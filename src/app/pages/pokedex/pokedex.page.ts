@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokeApiService } from 'src/app/services/api/poke-api.service';
 import { ItemPokemon } from 'src/app/services/api/types';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-pokedex',
   templateUrl: './pokedex.page.html',
@@ -17,8 +17,11 @@ export class PokedexPage implements OnInit {
   // pokemonDetails: PokemonResponse | null = null;
 
   private pokeApiService: PokeApiService;
-  constructor(pokeapiService: PokeApiService) {
+  private router: Router;
+  
+  constructor(pokeapiService: PokeApiService, router: Router) {
     this.pokeApiService = pokeapiService;
+    this.router = router;
   }
 
   async getPokemons(){
@@ -33,10 +36,9 @@ export class PokedexPage implements OnInit {
     }
   }
 
-  // async getPokemon(url: string){
-  //   const response = await this.pokeApiService.getPokemon(url);
-  //   this.pokemonDetails = response;
-  // }
+  onRowClick(pokemon: any){
+    this.router.navigate(['/pokemon-details', pokemon.id])
+  }
 
   ngOnInit() {
     this.getPokemons();

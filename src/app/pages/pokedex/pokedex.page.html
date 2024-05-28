@@ -9,7 +9,7 @@
   <!-- <ion-searchbar [(ngModel)]="search"></ion-searchbar> -->
 
   <ion-list [inset]="true">
-    <ion-item *ngFor="let pokemon of pokemons">
+    <ion-item *ngFor="let pokemon of pokemons" (click)="onRowClick(pokemon)">
       <img slot="start" src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png'>
       <ion-label>{{pokemon.name}}</ion-label>
     </ion-item>
