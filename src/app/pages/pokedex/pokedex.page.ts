@@ -18,21 +18,32 @@ export class PokedexPage implements OnInit {
 
   private pokeApiService: PokeApiService;
   private router: Router;
+  private loading = false; 
   
   constructor(pokeapiService: PokeApiService, router: Router) {
     this.pokeApiService = pokeapiService;
     this.router = router;
   }
 
-  async getPokemons(){
+  async getPokemons(url?: string){
     try {
-      const response = await this.pokeApiService.getPokemons();
-      this.pokemons = response.results;
+      this.loading = true;
+      const response = await this.pokeApiService.getPokemons(url);
+      this.pokemons = url ? [...this.pokemons, ...response.results] : response.results;
       this.next = response.next;
       this.previous = response.previous;
       this.count = response.count; 
     } catch (error) {
       console.log(error)
+    }finally {
+      this.loading = false; 
+  }
+  }
+
+  async loadData(event: any) {
+    if (this.next && !this.loading) {
+        await this.getPokemons(this.next);
+        event.target.complete();
     }
   }
 

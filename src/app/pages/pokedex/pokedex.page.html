@@ -12,4 +12,10 @@
       <ion-label>{{pokemon.name}}</ion-label>
     </ion-item>
   </ion-list>
+  <ion-infinite-scroll (ionInfinite)="loadData($event)" *ngIf="next">
+    <ion-infinite-scroll-content loadingSpinner="crescent">
+        Carregando mais...
+    </ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
 </ion-content>
