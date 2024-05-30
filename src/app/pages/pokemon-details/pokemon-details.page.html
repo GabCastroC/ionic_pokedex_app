@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>pokemonDetails</ion-title>
+    <ion-title>Mais detalhes</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,9 +11,14 @@
           <ion-card>
             <ion-card-header>
               <ion-card-title>
-                <h2>
-                 {{pokemon?.name || 'Nome indisponível'}} 
-                </h2>
+                <ion-row>
+                  <h2>
+                    {{pokemon?.name || 'Nome indisponível'}} 
+                   </h2>
+                   <ion-button shape="round"  fill="outline" (click)="setPokemon()">
+                    <ion-icon slot="icon-only" name="heart"></ion-icon>
+                  </ion-button>
+                </ion-row>
               </ion-card-title>
             </ion-card-header>
             <ion-card-content>
@@ -76,59 +81,4 @@
       </ion-row>
     </ion-grid>
 </ion-content>
-  
-<!--          
 
-<ion-card>
-  <img alt="Silhouette of mountains" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{id}}.png" height="30%" width="" />
-  <ion-card-header>
-    <ion-card-title>{{pokemon?.name || 'Nome indisponível'}}</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    <ion-list>
-      <ion-item>
-        <ion-item *ngIf="pokemon">
-          <ion-label class="titleDescripition">Tipo:</ion-label>
-          <ion-item >
-                <ion-label *ngFor="let type of pokemon.types">{{type.type.name}}</ion-label>
-          </ion-item>
-        </ion-item>
-      </ion-item>
-
-      <ion-item> 
-        <ion-item *ngIf="pokemon">
-          <ion-label class="titleDescripition">Habilidade(s):</ion-label>
-          <ion-item >
-                <ion-label *ngFor="let ability of pokemon.abilities" class="pokeItem">{{ability.ability.name}}</ion-label>
-          </ion-item>
-        </ion-item>
-      </ion-item>
-
-      <ion-item> 
-        <ion-item *ngIf="pokemon">
-          <ion-label class="titleDescripition">Altura: </ion-label>
-          <ion-item>{{pokemon.height + '0cm'}}</ion-item>
-        </ion-item>
-      </ion-item>
-
-      <ion-item> 
-        <ion-item *ngIf="pokemon">
-          <ion-label class="titleDescripition">Peso: </ion-label>
-          <ion-item>{{pokemon.weight + 'kg'}}</ion-item>
-        </ion-item>
-      </ion-item>
-
-      <ion-item> 
-        <ion-item *ngIf="pokemon">
-          <ion-label class="titleDescripition">Ordem de evolução: </ion-label>
-          <ion-item>{{pokemon.order}}</ion-item>
-        </ion-item>
-      </ion-item>
-
-    </ion-list>
-  </ion-card-content>
-  
-
-  <ion-button fill="clear">Action 2</ion-button>
-</ion-card> -->

@@ -4,12 +4,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'pokedex',
     pathMatch: 'full'
-  },
-  {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
   {
     path: 'pokedex',
@@ -18,7 +14,12 @@ const routes: Routes = [
   {
     path: 'pokemon-details/:id',
     loadChildren: () => import('./pages/pokemon-details/pokemon-details.module').then( m => m.PokemonDetailsPageModule)
-  }
+  },
+  {
+    path: 'pokemons-favorites',
+    loadChildren: () => import('./pages/pokemons-favorites/pokemons-favorites.module').then( m => m.PokemonsFavoritesPageModule)
+  },
+  
 
 ];
 
