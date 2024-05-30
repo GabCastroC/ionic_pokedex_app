@@ -28,6 +28,7 @@ Este projeto implementa um aplicativo Pokedex com tela principal, tela de detalh
 - <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5" width="20" height="20"/> HTML5
 - <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3" width="20" height="20"/> CSS3
 - <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript" width="20" height="20"/> JavaScript
+- <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="TypeScript" width="20" height="20"/> TypeScript
 
 ### Back-End
 - <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi.svg" alt="API Pokedex" width="20" height="20"/> API Pokedex (https://pokeapi.co/)
