@@ -1,6 +1,6 @@
     .pokeItem + .pokeItem  {
         margin-left: 10px;
-        min-width: 150px;
+        min-width: 200px;
         width: auto; 
     }
 
@@ -16,10 +16,18 @@
       }
 
     .align-items-center {
-    align-items: center;
+        align-items: center;
     }
     
     .ion-text-end {
     text-align: end;
     }
-      
+
+    ion-card {
+        width: 94%;
+    }
+    
+    .pokeItem-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
