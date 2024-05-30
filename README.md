@@ -9,6 +9,7 @@ Este projeto implementa um aplicativo Pokedex com tela principal, tela de detalh
 - Apresentação do nome e imagem do Pokémon.
 - Redirecionamento para a tela de detalhes ao clicar no Pokémon.
 
+
 ### Tela de Detalhes
 - Exibe uma lista com as seguintes descrições do Pokémon: Nome, imagem, foto, tipo, habilidades, altura, peso, e estatísticas.
 
@@ -19,7 +20,7 @@ Este projeto implementa um aplicativo Pokedex com tela principal, tela de detalh
 - Utiliza padrões de injeção de dependência para organizar e gerenciar dependências entre classes.
 
 ### Favoritos
-- Permite ao usuário marcar Pokémons como favoritos para acesso rápido.
+- Permite ao usuário marcar Pokémons como favoritos para acesso rápido. Também ao clicar no pokemon favorito é possível ver seus detalhes e retira-lo da listagem.
 
 ## Tecnologias Utilizadas
 
@@ -38,6 +39,25 @@ Este projeto implementa um aplicativo Pokedex com tela principal, tela de detalh
 2. Instale as dependências do projeto usando o comando `npm install`.
 3. Execute o projeto usando o comando `npm run start`.
 4. Acesse o aplicativo em seu navegador ([http://localhost:4200](http://localhost:4200)).
+
+## Imagens do Sistema
+Aqui estão algumas capturas de tela do aplicativo:
+
+- Menu
+![Menu](resources\imagem-menu-pokedex.png)
+
+- Listagem de Pokemons
+![Listagem de Pokemons](resources\imagem-listagem-pokemons.png)
+
+- Listagem de Pokemons Favoritados
+![Listagem de Pokemons Favoritados](resources\imagem-listagem-pokemons-favoritados.png)
+
+- Detalhes Pokemon
+![Detalhes Pokemon 1](resources\imagem-detalhes-pokemon(1).png)
+![Detalhes Pokemon 2](resources\imagem-detalhes-pokemon(2).png)
+
+- Detalhes do pokemon favoritado
+![Detalhes do pokemon favoritado](resources\imagem-detalhes-pokemon-favoritado.png)
 
 ## Compartilhamento no Github
 O projeto está disponível no Github em [https://github.com/GabCastroC/ionic_pokedex_app](https://github.com/GabCastroC/ionic_pokedex_app).
