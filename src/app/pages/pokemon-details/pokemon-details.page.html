@@ -11,13 +11,27 @@
           <ion-card>
             <ion-card-header>
               <ion-card-title>
-                <ion-row>
-                  <h2>
-                    {{pokemon?.name || 'Nome indisponível'}} 
-                   </h2>
-                   <ion-button shape="round"  fill="outline" (click)="setPokemon()">
-                    <ion-icon slot="icon-only" name="heart"></ion-icon>
-                  </ion-button>
+                <ion-row class="align-items-center">
+                  <ion-col>
+                    <ion-label>
+                      {{pokemon?.name || 'Nome indisponível'}} 
+                    </ion-label>
+                  </ion-col>
+                  <ion-col class="ion-text-end">
+                    <ion-button shape="round"  fill="outline" *ngIf="!isFavorite && !loadingButton" (click)="setPokemon()">
+                      <ion-icon slot="icon-only" name="heart"></ion-icon>
+                    </ion-button> 
+
+                    <ion-chip [outline]="true" class="chip" *ngIf="isFavorite && !loadingButton">
+                      <ion-label>Favoritado</ion-label>
+                      <ion-button  fill="clear" color="black" (click)="unfavoritePokemon()">
+                        <ion-icon slot="icon-only" name="close-outline"/>
+                      </ion-button> 
+                    </ion-chip> 
+
+                    <ion-spinner *ngIf="loadingButton"></ion-spinner>
+
+                  </ion-col>
                 </ion-row>
               </ion-card-title>
             </ion-card-header>

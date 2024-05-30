@@ -13,6 +13,7 @@ import { FavoritePokemonService } from 'src/app/services/local-storage/favorite-
 export class PokemonDetailsPage implements OnInit {
   id: number = 0;
   isFavorite: boolean = false;
+  loadingButton: boolean = false;
   
   private activatedRoute: ActivatedRoute;
   private pokeApiService: PokeApiService;
@@ -25,7 +26,7 @@ export class PokemonDetailsPage implements OnInit {
     this.pokeApiService = pokeApiService;
     this.pokemon = null;
     this.favoritePokemonService = favoritePokemonService;
-    this.isFavorite = false;
+    this.isFavorite = true;
   }
 
   async getPokemon(id: number){
@@ -34,19 +35,44 @@ export class PokemonDetailsPage implements OnInit {
   }
 
   async setPokemon(){
-    if(this.isFavorite){
-      console.log('O pokémon já está favoritado.')
-    }else{
-      await this.favoritePokemonService.setPokemon(this.id, this.pokemon?.name ?? '');
-      this.checkIsfavorite()
+    this.loadingButton = true;
+    try {
+      if(this.isFavorite){
+        console.log('O pokémon já está favoritado.')
+      }else{
+        await this.favoritePokemonService.setPokemon(this.id, this.pokemon?.name ?? '');
+        await this.checkIsfavorite()
+      }
+    } catch (error) {
+      console.error(error)
+    }finally{
+      setTimeout(() => {
+        this.loadingButton = false;
+      }, 2000);
     }
+
   }
 
   async checkIsfavorite(){
     this.isFavorite = await this.favoritePokemonService.checkIsFavorite(this.id);
     console.log(this.isFavorite)
   }
-    
+  
+  async unfavoritePokemon(){
+    this.loadingButton = true;
+    try {
+      await this.favoritePokemonService.unfavoritePokemon(this.id);
+      this.checkIsfavorite();
+      console.log(this.favoritePokemonService.getFavoritesPokemons());
+    } catch (error) {
+      console.error(error)
+    }finally{
+      setTimeout(() => {
+        this.loadingButton = false;
+      }, 2000);
+    }
+  } 
+
   ngOnInit() {
     this.getPokemon(this.id);
     this.favoritePokemonService.initStorage();

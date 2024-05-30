@@ -7,8 +7,7 @@ import { ItemPokemon } from '../api/types';
 })
 export class FavoritePokemonService {
   private storage: Storage;
-  private favorites_pokemons: any;
-
+  
   constructor(storage: Storage) {  
      this.storage = storage;
   }
@@ -55,10 +54,15 @@ export class FavoritePokemonService {
     }
   }
 
-  async removeFavoritePokemon(id: number){
-    const favorites_pokemons = await this.getFavoritesPokemons() ?? [];
-    const removed_pokemon = favorites_pokemons.filter((pokemon: ItemPokemon) => pokemon.id !== id);
-    await this.storage.set('favorites_pokemons_id', JSON.stringify(favorites_pokemons));
+  async unfavoritePokemon(id: number){
+    try{
+      const favorites_pokemons = await this.getFavoritesPokemons() ?? [];
+      const removed_pokemon = favorites_pokemons.filter((pokemon: ItemPokemon) => pokemon.id !== id);
+      await this.storage.set('favorites_pokemons_id', JSON.stringify(removed_pokemon));
+      console.log('Pokemon removido com sucesso.')
+    }catch(error){
+      console.error(error)
+    }
   }
 
 }
