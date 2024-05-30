@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 import { ItemPokemon } from '../api/types';
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritePokemonService {
   private storage: Storage;
+  private toastController: ToastController;
+
   
-  constructor(storage: Storage) {  
+  constructor(storage: Storage, toastController: ToastController) {  
      this.storage = storage;
+     this.toastController = toastController;
   }
 
   async initStorage() {
@@ -26,9 +30,19 @@ export class FavoritePokemonService {
         'url': `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
       }); 
       await this.storage.set('favorites_pokemons_id', JSON.stringify(favorites_pokemons));
-      console.log('Pokemon favoritado');
+      const toast = await this.toastController.create({
+        message: 'Pokemon favoritado com sucesso!',
+        duration: 3000,
+        position: 'top',
+      });
+      await toast.present();
     }catch(error){
-      console.error('Erro ao salvar Pokémons favoritos:', {error});
+      const toast = await this.toastController.create({
+        message: `Erro ao favoritar o pokémon: ${error}`, 
+        duration: 3000,
+        position: 'top',
+      });
+      await toast.present();
     }
   }
 
@@ -49,7 +63,7 @@ export class FavoritePokemonService {
       ).includes(id);
       return isFavorited;
     } catch (error) {
-      console.log(error)
+      console.log(`Erro ao conferir se o pokemon está na lista dos favoritos: ${error}`); 
       return false
     }
   }
@@ -59,9 +73,19 @@ export class FavoritePokemonService {
       const favorites_pokemons = await this.getFavoritesPokemons() ?? [];
       const removed_pokemon = favorites_pokemons.filter((pokemon: ItemPokemon) => pokemon.id !== id);
       await this.storage.set('favorites_pokemons_id', JSON.stringify(removed_pokemon));
-      console.log('Pokemon removido com sucesso.')
+      const toast = await this.toastController.create({
+        message: `Pokémon desfavoritado com sucesso.`, 
+        duration: 3000,
+        position: 'top',
+      });
+      await toast.present();
     }catch(error){
-      console.error(error)
+      const toast = await this.toastController.create({
+        message: `Erro ao desfavoritar o pokémon: ${error}`, 
+        duration: 3000,
+        position: 'top',
+      });
+      await toast.present();
     }
   }
 
