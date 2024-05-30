@@ -18,7 +18,8 @@ export type PokemonResponse = {
     weight: number,
     types: Type[]
     name: string,
-    order: number    
+    order: number
+    stats: Stat[]    
 }
 
 type Ability = {
@@ -31,6 +32,15 @@ type Type = {
     slot: number,
     type: {
         name: string
+    }
+}
+
+type Stat = {
+    "base_stat": number,
+    "effort": number,
+    "stat": {
+        "name": string,
+        "url": string
     }
 }
  
