@@ -44,19 +44,24 @@ Este projeto implementa um aplicativo Pokedex com tela principal, tela de detalh
 Aqui estão algumas capturas de tela do aplicativo:
 
 - Menu
-![Menu]((https://github.com/GabCastroC/ionic_pokedex_app/blob/main/resources/imagem-menu-pokedex.png))
+
+![Menu](https://github.com/GabCastroC/ionic_pokedex_app/blob/main/resources/imagem-menu-pokedex.png)
 
 - Listagem de Pokemons
+
 ![Listagem de Pokemons](https://github.com/GabCastroC/ionic_pokedex_app/blob/main/resources/imagem-listagem-pokemons.png)
 
-- Listagem de Pokemons Favoritados
-![Listagem de Pokemons Favoritados](https://github.com/GabCastroC/ionic_pokedex_app/blob/main/resources/imagem-listagem-pokemons-favoritados.png)
-
 - Detalhes Pokemon
+
 ![Detalhes Pokemon 1](https://github.com/GabCastroC/ionic_pokedex_app/blob/main/resources/imagem-detalhes-pokemon(1).png)
 ![Detalhes Pokemon 2](https://github.com/GabCastroC/ionic_pokedex_app/blob/main/resources/imagem-detalhes-pokemon(2).png)
 
+- Listagem de Pokemons Favoritados
+
+![Listagem de Pokemons Favoritados](https://github.com/GabCastroC/ionic_pokedex_app/blob/main/resources/imagem-listagem-pokemons-favoritados.png)
+
 - Detalhes do pokemon favoritado
+
 ![Detalhes do pokemon favoritado](https://github.com/GabCastroC/ionic_pokedex_app/blob/main/resources/imagem-detalhes-pokemon-favoritado.png)
 
 ## Compartilhamento no Github
